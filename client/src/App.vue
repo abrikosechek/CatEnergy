@@ -1,30 +1,96 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <NavigationBar />
+    <router-view />
+  </div>
 </template>
 
+<script>
+import NavigationBar from "./components/NavigationBar.vue";
+
+export default {
+  name: "App",
+  components: { NavigationBar },
+};
+</script>
+
 <style lang="scss">
+$basic_green: #68b738;
+$basic_green-2: #5eaa2f;
+$basic_grey: #f2f2f2;
+$special_grey-2: #ebebeb;
+$special_grey-3: #cdcdcd;
+$special_dark-grey: #444444;
+$special_dark-grey-2: #222222;
+$status_error: #ff8282;
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+  font-family: Oswald, sans-serif;
 }
 
-nav {
-  padding: 30px;
+body {
+  margin: 0;
+  min-height: 200vh;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+* {
+  box-sizing: border-box;
 
-    &.router-link-exact-active {
-      color: #42b983;
+  * {
+    &::-webkit-scrollbar {
+      height: 0;
+      width: 0;
     }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+
+  @media (max-width: 1220px) {
+    padding: 0 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 10px;
   }
 }
 </style>
